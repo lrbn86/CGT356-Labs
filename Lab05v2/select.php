@@ -52,7 +52,10 @@
             // below, ALWAYS use trim() on data pulled from the database
             ?>
             <tr>
-              <td style="border-right:1px solid #000000;"><?php echo(trim($row["UserID"]));?></td>
+              <td style="border-right:1px solid #000000;">
+                <a href="updateUser.php?id=<?php echo(trim($row["UserID"]));?>">edit</a> |
+                <a href="deleteUser.php?id=<?php echo(trim($row["UserID"]));?>">delete</a>
+              </td>
               <td style="border-right:1px solid #000000;"><?php echo(trim($row["LastName"]));?></td>
               <td style="border-right:1px solid #000000;"><?php echo(trim($row["FirstName"]));?></td>
               <td><?php echo(trim($row["Title"]));?></td>
@@ -107,8 +110,11 @@
             // get "hello        " using trim() removes all the extra spaces to give you "hello"
             ?>
             <tr>
-              <td style="border-right:1px solid #000000;"><?php echo(trim($row["ShipperID"]));?></td>
-              <td style="border-right:1px solid #000000;"><?php echo(trim($row["CompanyName"]));?></td>
+              <td style="border-right:1px solid #000000;">
+                <a href="update.php?id=<?php echo(trim($row["ShipperID"]));?>">edit</a> | 
+                <a href="delete.php?id=<?php echo(trim($row["ShipperID"]));?>">delete</a>
+              </td>
+              <td style="border-right:1px solid #000000;"><?php echo (trim($row["CompanyName"]));?></td>
               <td><?php echo(trim($row["Phone"]));?></td>
             </tr>
             <?php

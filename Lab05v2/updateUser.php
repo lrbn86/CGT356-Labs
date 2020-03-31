@@ -2,7 +2,7 @@
   session_start();
   if (empty($_SESSION["errorMessage"]))
     $_SESSION["errorMessage"] = "";
-
+  $id = $_GET["id"];
   include("includes/openDbConn.php");
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
   ?>
   <div style="font-style:italic; text-align:center; font-size:9px;">this set of pages validates as HTML5 compliant <br /> &nbsp;</div>
   <?php
-    $sql = "SELECT ShipperID, CompanyName, Phone FROM shippersLab5 WHERE ShipperID=2";
+    $sql = "SELECT UserID, LastName, FirstName, Title FROM usersLab5 WHERE UserID=" .$id;
     $result = mysqli_query($db, $sql);
     if (empty($result)) {
       $num_results = 0;
@@ -43,22 +43,26 @@
       $_SESSION["errorMessage"] = "You must first insert a Shipper with ID 2";
     }
   ?>
-  <form id="form0" method="post" action="doUpdate.php">
+  <form id="form0" method="post" action="doUpdateUser.php">
     <fieldset>
-      <legend>Update Shipper table</legend>
+      <legend>Update User table</legend>
       <ul>
         <li>
-          <label title="ShipperID" for="ShipperIDdis">Shipper ID</label>
-          <input type="text" name="ShipperIDdis" id="ShipperIDdis" size="20" maxlength="20" value="<?php if($num_results != 0) { echo trim($row["ShipperID"]);}?>" disabled="disabled"/>
-          <input name="shipperID" id="shipperID" type="hidden" value="<?php if($num_results != 0) { echo trim($row["ShipperID"]);}?>"/>
+          <label title="UserID" for="UserIDdis">User ID</label>
+          <input type="text" name="UserIDdis" id="UserIDdis" size="20" maxlength="20" value="<?php if($num_results != 0) { echo trim($row["UserID"]);}?>" disabled="disabled"/>
+          <input name="userID" id="userID" type="hidden" value="<?php if($num_results != 0) { echo trim($row["UserID"]);}?>"/>
         </li>
         <li>
-          <label title="CompanyName" for="companyName">Company Name</label>
-          <input name="companyName" id="companyName" type="text" size="20" maxlength="20" value="<?php if($num_results != 0) { echo trim($row["CompanyName"]);}?>"/>
+          <label title="LastName" for="LastName">Last Name</label>
+          <input name="lastName" id="lastName" type="text" size="20" maxlength="20" value="<?php if($num_results != 0) { echo trim($row["LastName"]);}?>"/>
         </li>
         <li>
-          <label title="Phone" for="phone">Phone #</label>
-          <input name="phone" id="phone" type="text" size="20" maxlength="20" value="<?php if($num_results != 0) { echo trim($row["Phone"]);}?>"/>
+          <label title="FirstName" for="FirstName">First Name</label>
+          <input name="firstName" id="firstName" type="text" size="20" maxlength="20" value="<?php if($num_results != 0) { echo trim($row["FirstName"]);}?>"/>
+        </li>
+        <li>
+          <label title="Title" for="Title">Title</label>
+          <input name="title" id="title" type="text" size="20" maxlength="20" value="<?php if($num_results != 0) { echo trim($row["Title"]);}?>"/>
         </li>
         <li><span><?php echo $_SESSION["errorMessage"];?></span></li>
         <li><input type="submit" value="Update Info" name="submit" id="submit"/></li>

@@ -3,9 +3,9 @@
   session_start();
 
   include("includes/openDbConn.php");
-
+  $id = $_GET["id"];
   // Prepare SQL statement
-  $sql = "DELETE FROM shippersLab5 WHERE ShipperID=2";
+  $sql = "DELETE FROM shippersLab5 WHERE ShipperID=" . $id;
 
   // Execute the SQL query and store the result of the execution into $result
   $result = mysqli_query($db, $sql);
