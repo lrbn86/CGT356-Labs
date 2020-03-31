@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+#sidebar {
+  position: fixed;
+  text-align: center;
+  background-color: rgb(5, 151, 219);
+  width: 200px;
+  height: 100%;
+  border-right: 1px solid white;
+}
+
+#sidebar ul > li {
+  font-size: 30px;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s;
+}
+
+#sidebar ul > li:hover {
+  cursor: pointer;
+  background-color: rgb(15, 174, 248);
+}
+
+#sidebar ul > li > a {
+  color: white;
+  display: block;
+}
+
+#content {
+  margin-left: 220px;
+}
+
+button {
+  font-size: 25px;
+  padding: 5px;
+  border-radius: 5%;
+  background-color: rgb(5, 151, 219);
+  color: white;
+  display: block;
+  transition: background-color 0.3s;
+  margin: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(15, 174, 248);
+}
+
+#content table th,
+td {
+  padding: 15px;
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+#content table th {
+  background-color: black;
+}
+
+#content table tr {
+  font-size: 25px;
+  color: white;
+  background-color: rgb(15, 174, 248);
+}
+
+#content table tr > td {
+  transition: background-color 0.3s;
+}
+
+#content table tr > td:hover {
+  cursor: pointer;
+  background-color: rgb(5, 151, 219);
+}
+
+p {
+  margin: 10px;
+}
